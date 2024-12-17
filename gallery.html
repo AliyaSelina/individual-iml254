@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>My Gallery</title>
+<style type="text/css">
+
+body {font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: #F5F5DC; display: flex; flex-direction: column; min-height: 100vh;}
+
+header {background-color: #DAF7A6; color: #47663B; padding: 40px; text-align: center;}
+
+nav {background-color: #444; color: #fff; padding: 10px; text-align: center;}
+
+nav a {color: #fff; text-decoration: none; margin: 0 15px;}
+
+section {padding: 20px; flex: 1;}
+
+footer {background-color: #333; color: #fff; text-align: center; padding: 10px;}
+
+.slider {position: relative; max-width: 800px; aspect-ratio: 16 / 9; margin: 20px auto; overflow: hidden; border: 2px solid #ccc; border-radius: 10px;}
+
+.slides {display: flex; transition: transform 0.5s ease-in-out;}
+        
+.slides img {width: 100%; height: 100%; object-fit: cover;}
+        
+.buttons {
+position: absolute;
+top: 50%;
+width: 100%;
+display: flex;
+justify-content: space-between;
+transform: translateY(-50%);}
+        
+.buttons button {background-color: rgba(0, 0, 0, 0.5); color: #fff; border: none; padding: 10px; cursor: pointer; font-size: 18px; border-radius: 50%;}
+        
+.buttons button:hover {background-color: rgba(0, 0, 0, 0.8);}
+        
+.dots {text-align: center; margin: 10px 0;}
+        
+.dots span {display: inline-block; width: 10px; height: 10px; margin: 0 5px; background-color: #ccc; border-radius: 50%; cursor: pointer;}
+        
+.dots .active {background-color: #333;}
+</style>
+</head>
+<body>
+    
+<a name="top"></a>
+    
+<header>
+<img src="image/welcome8.png" height="50%" width="40%" alt="Welcome">
+</header>
+    
+<nav>
+<a href="index.html#home">Home</a>
+<a href="myself.html#about">About Me</a>
+<a href="education.html#education">Education</a>
+<a href="family.html#family">Family</a>
+<a href="friends.html#friends">Friends</a>
+<a href="hobby.html#hobby">Hobby</a>
+<a href="experience.html#experience">Experience</a>
+<a href="gallery.html#gallery">Gallery</a>
+</nav>
+    
+<section>
+<h2>Zoomed In on Life</h2>
+<p>You made it! This is the Gallery, where visuals speak louder than words. Think of it as my personal highlight reel, starring moments big, small, and delightfully random. This collection is a little bit of everything: adventures, memories, and all the randomness that makes life exciting.</p>
+       
+<div class="slider">
+<div class="slides">
+<img src="image/quadruple.jpeg" alt="Image 1" />
+<img src="image/trio.jpeg" alt="Image 2" />
+<img src="image/90s1.jpeg" alt="Image 3" />
+<img src="image/90s2.jpeg" alt="Image 4" />
+<img src="image/mmks.jpeg" alt="Image 5" />
+<img src="image/parents.jpeg" alt="Image 6" />
+<img src="image/weirdcoco.jpeg" alt="Image 7" />
+<img src="image/90s3.jpeg" alt="Image 8" />
+<img src="image/firedrill.jpeg" alt="Image 9" />
+</div>
+            
+<div class="buttons">
+<button id="prev">&#10094;</button>
+<button id="next">&#10095;</button>
+</div>
+            
+<div class="dots">
+<span class="dot"></span>
+<span class="dot"></span>
+<span class="dot"></span>
+<span class="dot"></span>
+<span class="dot"></span>
+<span class="dot"></span>
+<span class="dot"></span>
+<span class="dot"></span>
+<span class="dot"></span>
+</div>
+</section>
+    
+<script>const slides = document.querySelector('.slides'); const dots = document.querySelectorAll('.dot'); let currentIndex = 0;
+       
+function updateSlider(index) {slides.style.transform = `translateX(-${index * 100}%)`; dots.forEach((dot, i) => {dot.classList.toggle('active', i === index);});}
+      
+document.getElementById('prev').addEventListener('click', () => {currentIndex = (currentIndex > 0) ? currentIndex - 1 : dots.length - 1; updateSlider(currentIndex);});
+        
+document.getElementById('next').addEventListener('click', () => {currentIndex = (currentIndex < dots.length - 1) ? currentIndex + 1 : 0; updateSlider(currentIndex);});
+      
+dots.forEach((dot, index) => {dot.addEventListener('click', () => {currentIndex = index; updateSlider(index);});}); setInterval(() => {currentIndex = (currentIndex < dots.length - 1) ? currentIndex + 1 : 0; updateSlider(currentIndex);}, 5000); 
+</script>
+
+<br><br><br><br>
+
+<center><iframe width="560" height="315" src="https://www.youtube.com/embed/PfPG0qL2wE0?si=N5jsSo9pU1MandKU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></center>
+
+<center><h4><font color="#186a3b">2024 in a POV shot</font></h4></center>
+
+<br><br><br>
+        
+<center><a href="#top"><font color="#186a3b">Back to theee Top</font></a></center>
+
+<br><br><br>
+
+<footer>
+<p>&copy; 2024 Aliya Selina. All Rights Reserved.</p>
+</footer>
+
+</body>
+</html>
